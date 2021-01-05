@@ -1,0 +1,15 @@
+name: Build
+
+on: [push]
+jobs:
+  build:
+  
+    runs-on: ubuntu-latest
+    container: devkitpro/devkita64
+
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Building capmtp-example
+      run: |
+        make -j$(nproc)
